@@ -1,2 +1,2 @@
 # Nepshop
-Webshop using ASP.NET Core using SOLID
+Webshop using ASP.NET making use of the SOLID principles
