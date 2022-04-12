@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nepshop", "Nepshop\Nepshop.csproj", "{3DAD78C9-C8EC-4314-869B-1155F2A9A14D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nepshop.Logic", "Nepshop.Logic\Nepshop.Logic.csproj", "{2F2CDD86-EE7D-4A54-BFFB-E415B84BC8B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nepshop.Logic", "Nepshop.Logic\Nepshop.Logic.csproj", "{2F2CDD86-EE7D-4A54-BFFB-E415B84BC8B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nepshop.DAL", "Nepshop.DAL\Nepshop.DAL.csproj", "{54D28CAD-D403-4F57-9B79-438C6FDA309E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nepshop.DAL", "Nepshop.DAL\Nepshop.DAL.csproj", "{54D28CAD-D403-4F57-9B79-438C6FDA309E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nepshop.Vieuw", "Nepshop.Vieuw\Nepshop.Vieuw.csproj", "{773D7953-CF3F-413C-AB78-752F4D4269A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DAD78C9-C8EC-4314-869B-1155F2A9A14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DAD78C9-C8EC-4314-869B-1155F2A9A14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DAD78C9-C8EC-4314-869B-1155F2A9A14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DAD78C9-C8EC-4314-869B-1155F2A9A14D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F2CDD86-EE7D-4A54-BFFB-E415B84BC8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F2CDD86-EE7D-4A54-BFFB-E415B84BC8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F2CDD86-EE7D-4A54-BFFB-E415B84BC8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{54D28CAD-D403-4F57-9B79-438C6FDA309E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54D28CAD-D403-4F57-9B79-438C6FDA309E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54D28CAD-D403-4F57-9B79-438C6FDA309E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{773D7953-CF3F-413C-AB78-752F4D4269A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{773D7953-CF3F-413C-AB78-752F4D4269A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{773D7953-CF3F-413C-AB78-752F4D4269A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{773D7953-CF3F-413C-AB78-752F4D4269A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
