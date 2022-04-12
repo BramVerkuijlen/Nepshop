@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Nepshop.Logic
 {
-    internal class Product
+    public class Product
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -16,7 +17,9 @@ namespace Nepshop.Logic
         public int Amount { get; private set; }
         public bool Available { get; private set; }
 
-        public Product(string name, string description, Helper.Category category, string picture, int price, int amount, bool available)
+        readonly IProductDal ProductDal;
+
+        public Product(string name, string description, Helper.Category category, string picture, int price, int amount, bool available, IProductDal productDal)
         {
             Name = name;
             Description = description;
@@ -26,12 +29,13 @@ namespace Nepshop.Logic
             Amount = amount;
             Available = available;
 
-
+            IProductDal ProductDal = productDal;
+            
         }
 
         void UpdateProduct()
         {
-
+            ProductDal.UpdateProduct();
         }
     }
 }

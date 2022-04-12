@@ -9,5 +9,7 @@ namespace Nepshop.Logic.Interface
     public interface ICartDal
     {
         public void AddProduct();
+        public void RemoveProduct();
+        public void EmptyCart();
     }
 }

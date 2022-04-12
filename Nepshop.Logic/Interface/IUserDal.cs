@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nepshop.Logic
 {
-    public interface IUser
+    public interface IUserDal
     {
         void UpdateUser();
+
+        void BuyCart();
         
     }
 }

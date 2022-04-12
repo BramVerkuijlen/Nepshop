@@ -14,5 +14,15 @@ namespace Nepshop.DAL
         {
             throw new NotImplementedException();
         }
+
+        public void EmptyCart()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProduct()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

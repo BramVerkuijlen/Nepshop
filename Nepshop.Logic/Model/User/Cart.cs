@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,26 @@ namespace Nepshop.Logic
 {
     public class Cart
     {
+        private ICartDal CartDal;
+
         private List<Product> Products = new List<Product>();
+        public IEnumerable<Product> products
+        {
+            get { return Products; }
+        }
+        public Cart(ICartDal cartDal)
+        {
+            CartDal = cartDal;
+        }
 
         public void AddProduct(Product product)
         {
-            this.Products.Add(product);
+            CartDal.AddProduct();
         }
 
         public void RemoveProduct(Product product)
         {
-            this.Products.Add(product);
+            CartDal.RemoveProduct();
         }
     }
 }

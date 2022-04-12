@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nepshop.Logic
 {
-    public class Admin : IUser
+    public class Admin
     {
         public string Username { get; private set; }
         public string Password { get; private set; }
@@ -15,11 +15,6 @@ namespace Nepshop.Logic
         {
             Username = username;
             Password = password;
-        }
-
-        void IUser.UpdateUser()
-        {
-            throw new NotImplementedException();
         }
     }
 }

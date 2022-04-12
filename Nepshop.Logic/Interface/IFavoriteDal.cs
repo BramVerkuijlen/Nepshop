@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Nepshop.Logic.Interface
 {
-    public interface IProductDal
+    public interface IFavoriteDal
     {
-        public void UpdateProduct();
+        public void AddProduct();
+        public void RemoveProduct();
+        public void AddProductToCart();
     }
 }

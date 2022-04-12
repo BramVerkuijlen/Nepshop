@@ -8,24 +8,29 @@ using System.Threading.Tasks;
 
 namespace Nepshop.DAL
 {
-    public class ProductDal : IProductDal, IProductMaintainerDal
+    public class UserDal : IUserDal, IUserMaintainerDal
     {
-        public void AddProduct()
+        public void AddUser()
         {
             throw new NotImplementedException();
         }
 
-        public void GetAllProducts()
+        public void BuyCart()
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveProduct()
+        public void GetAllUsers()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateProduct()
+        public void RemoveUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUser()
         {
             throw new NotImplementedException();
         }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nepshop.Logic", "Nepshop.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nepshop.DAL", "Nepshop.DAL\Nepshop.DAL.csproj", "{54D28CAD-D403-4F57-9B79-438C6FDA309E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nepshop.Vieuw", "Nepshop.Vieuw\Nepshop.Vieuw.csproj", "{773D7953-CF3F-413C-AB78-752F4D4269A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nepshop.View", "Nepshop.Vieuw\Nepshop.View.csproj", "{773D7953-CF3F-413C-AB78-752F4D4269A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

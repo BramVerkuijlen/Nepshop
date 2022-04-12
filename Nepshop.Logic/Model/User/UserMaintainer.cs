@@ -8,12 +8,12 @@ namespace Nepshop.Logic
 {
     public class UserMaintainer
     {
-        void AddUser(IUser user)
+        void AddUser()
         {
 
         }
 
-        void RemoveUser(IUser user)
+        void RemoveUser()
         {
 
         }

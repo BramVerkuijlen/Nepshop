@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nepshop.Logic
+namespace Nepshop.Logic.Model.DTO
 {
-    public class Customer
+    internal class UserDTO
     {
         public string Username { get; private set; }
         public string Password { get; private set; }
@@ -14,13 +14,5 @@ namespace Nepshop.Logic
         public string Lastname { get; private set; }
         public string Address { get; private set; }
         public string Email { get; private set; }
-        Favorite Favorite { get;}
-        Cart Cart { get; }
-
-        public Customer()
-        {
-            Favorite = new Favorite();
-            Cart = new Cart();
-        }
     }
 }

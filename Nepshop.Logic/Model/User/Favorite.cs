@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,17 @@ namespace Nepshop.Logic
 {
     public class Favorite
     {
+        private IFavoriteDal FavoriteDal;
 
-        public List<Product> Products = new List<Product>();
+        private List<Product> Products = new List<Product>();
+        public IEnumerable<Product> products
+        {
+            get { return Products; }
+        }
+        public Favorite(IFavoriteDal favoriteDal)
+        {
+            FavoriteDal = favoriteDal;
+        }
 
         public void AddProduct(Product product)
         {
