@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Nepshop.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,14 @@ namespace Nepshop.Vieuw
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        public void MakeDalLayers()
+        {
+            CartDal cartDal = new CartDal();
+            FavoriteDal favorite = new FavoriteDal();
+            ProductDal productDal = new ProductDal();
+            UserDal userDal = new UserDal();
         }
     }
 }

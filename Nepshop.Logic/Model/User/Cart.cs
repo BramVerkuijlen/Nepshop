@@ -9,7 +9,7 @@ namespace Nepshop.Logic
 {
     public class Cart
     {
-        private ICartDal CartDal;
+        readonly ICartDal CartDal;
 
         private List<Product> Products = new List<Product>();
         public IEnumerable<Product> products

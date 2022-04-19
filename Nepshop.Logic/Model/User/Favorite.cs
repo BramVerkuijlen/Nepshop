@@ -9,7 +9,7 @@ namespace Nepshop.Logic
 {
     public class Favorite
     {
-        private IFavoriteDal FavoriteDal;
+        readonly IFavoriteDal FavoriteDal;
 
         private List<Product> Products = new List<Product>();
         public IEnumerable<Product> products

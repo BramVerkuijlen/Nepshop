@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,14 @@ namespace Nepshop.Logic
         Favorite Favorite { get;}
         Cart Cart { get; }
 
-        public Customer()
+        readonly IUserDal UserDal;
+
+        public Customer(IUserDal userDal, ICartDal cartDal, IFavoriteDal favoriteDal)
         {
-            Favorite = new Favorite();
-            Cart = new Cart();
+            UserDal = userDal;
+
+            Favorite = new Favorite(favoriteDal);
+            Cart = new Cart(cartDal);
         }
     }
 }

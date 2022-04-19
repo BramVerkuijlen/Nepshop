@@ -8,9 +8,9 @@ namespace Nepshop.Logic.Interface
 {
     public interface IProductMaintainerDal
     {
-        void AddProduct();
+        void AddProduct(Product product);
         
-        void RemoveProduct();
+        void RemoveProduct(Product product);
        
         void GetAllProducts();
         
