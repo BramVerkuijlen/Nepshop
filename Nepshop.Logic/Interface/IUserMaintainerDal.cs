@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Nepshop.Logic.Interface
 
         void RemoveUser();
 
-        void GetAllUsers();
+        List<UserDTO> GetAllUsers();
     }
 }

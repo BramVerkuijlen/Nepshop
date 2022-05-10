@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nepshop.Logic.Model.DTO
 {
-    internal class CartDTO
+    public class Favorite
     {
         private List<Product> Products = new List<Product>();
         public IEnumerable<Product> products

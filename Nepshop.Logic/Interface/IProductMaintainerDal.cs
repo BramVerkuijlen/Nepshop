@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,9 @@ namespace Nepshop.Logic.Interface
         void AddProduct(Product product);
         
         void RemoveProduct(Product product);
-       
-        void GetAllProducts();
+
+        List<ProductDTO> GetAllProducts();
+        
         
     }
 }

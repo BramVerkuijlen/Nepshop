@@ -11,6 +11,8 @@ namespace Nepshop.Logic
     {
         private IProductMaintainerDal ProductMaintainerDal;
 
+        
+
         public ProductMaintainer(IProductMaintainerDal productMaintainerDal)
         {
             ProductMaintainerDal = productMaintainerDal;
