@@ -15,36 +15,16 @@ namespace Nepshop.DAL
 
         readonly string ConnectionString = "Data Source=LAPTOP-VCK4O5UP;Initial Catalog=NepshopDB;Integrated Security=True";
 
-        public void AddProduct(Product product)
+        public void AddProduct(ProductDTO product)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand querry = new SqlCommand(
 
-                    "Insert Into Product " +
-                    "(Name, " +
-                    "Description, " +
-                    "Category, " +
-                    "Picture, " +
-                    "Price, " +
-                    "Amount, " +
-                    "Available) " +
+                    "INSERT INTO Product (Name,Description,Category,Picture,Price,Amount,Available) " +
 
-                    "Value (" + 
-                    product.Name +
-                    "," +
-                    product.Description + 
-                    "," +
-                    product.Category +
-                    "'" +
-                    product.Picture +
-                    "," +
-                    product.Price +
-                    "," +
-                    product.Amount +
-                    "," + 
-                    product.Available +
-                    ")"
+                    $"VALUE ({product.Name},{product.Description},{product.Category},{product.Picture},{product.Price},{product.Amount},{product.Available})"
+
                     , conn))
                 {
                     conn.Open();
@@ -59,7 +39,7 @@ namespace Nepshop.DAL
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand querry = new SqlCommand("Select * from Product", conn))
+                using (SqlCommand querry = new SqlCommand("SELECT * FROM Product", conn))
                 {
                     conn.Open();
 
@@ -85,20 +65,34 @@ namespace Nepshop.DAL
             return products;
         }
 
-
-        public void RemoveProduct()
+        public void RemoveProduct(ProductDTO product)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand querry = new SqlCommand("DELETE FROM Product WHERE (Id = " + product.Id + ")", conn))
+                {
+                    conn.Open();
+                }
+            }
         }
 
-        public void RemoveProduct(Product product)
+        public void UpdateProduct(ProductDTO product)
         {
-            throw new NotImplementedException();
-        }
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand querry = new SqlCommand(
 
-        public void UpdateProduct()
-        {
-            throw new NotImplementedException();
+                    "UPDATE Products SET (Name,Description,Category,Picture,Price,Amount,Available) " +
+
+                    $"Value ({product.Name},{product.Description},{product.Category},{product.Picture},{product.Price},{product.Amount},{product.Available})" +
+
+                    $"WHERE (Id ={product.Id})"
+
+                    , conn))
+                {
+                    conn.Open();
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,9 @@ namespace Nepshop.Logic.Interface
 {
     public interface IFavoriteDal
     {
-        public void AddProduct();
-        public void RemoveProduct();
+        public void AddProduct(ProductDTO productDTO);
+        public void RemoveProduct(ProductDTO productDTO);
         public void AddProductToCart();
+        public void GetAllProducts(ProductDTO productDTO);
     }
 }

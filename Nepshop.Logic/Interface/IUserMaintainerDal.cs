@@ -9,9 +9,9 @@ namespace Nepshop.Logic.Interface
 {
     public interface IUserMaintainerDal
     {
-        void AddUser();
+        void AddUser(UserDTO userDTO);
 
-        void RemoveUser();
+        void RemoveUser(UserDTO userDTO);
 
         List<UserDTO> GetAllUsers();
     }

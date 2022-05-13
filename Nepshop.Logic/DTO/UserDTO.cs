@@ -14,6 +14,6 @@ namespace Nepshop.Logic.DTO
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
-        public int points { get; set; }
+        public int Points { get; set; }
     }
 }

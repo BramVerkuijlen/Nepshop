@@ -9,6 +9,7 @@ namespace Nepshop.Logic
 {
     public class Product
     {
+        public int Id { get; set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public string Category { get; private set; }
@@ -24,9 +25,10 @@ namespace Nepshop.Logic
             IProductDal ProductDal = productDal;
         }
 
-        void UpdateProduct()
+        public void UpdateProduct(Product product)
         {
-            ProductDal.UpdateProduct();
+            ProductDal.UpdateProduct(product);
         }
+
     }
 }

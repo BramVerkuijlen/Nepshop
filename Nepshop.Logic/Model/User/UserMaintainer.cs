@@ -1,4 +1,5 @@
-﻿using Nepshop.Logic.Interface;
+﻿using Nepshop.Logic.DTO;
+using Nepshop.Logic.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +15,19 @@ namespace Nepshop.Logic
         {
           UserMaintainerDal = userMaintainerDal;
         }
-        void AddUser()
+        void AddUser(User user)
         {
-            UserMaintainerDal.AddUser();
+            UserMaintainerDal.AddUser(user);
         }
 
-        void RemoveUser()
+        void RemoveUser(User user)
         {
-            UserMaintainerDal.RemoveUser();
+            UserMaintainerDal.RemoveUser(user);
         }
 
-        void GetAllUsers()
+        List<UserDTO> GetAllUsers()
         {
-            UserMaintainerDal.GetAllUsers();
+            return UserMaintainerDal.GetAllUsers();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Nepshop.Logic.Interface;
+using Nepshop.Logic.Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,36 @@ namespace Nepshop.Logic
             CartDal = cartDal;
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(ProductDTO product)
         {
-            CartDal.AddProduct();
+            CartDal.AddProduct(product);
         }
 
-        public void RemoveProduct(Product product)
+        public void RemoveProduct(ProductDTO product)
         {
-            CartDal.RemoveProduct();
+            CartDal.RemoveProduct(product);
         }
+
+        public List<ProductDTO> GetAllProducts()
+        {
+            return CartDal.GetAllProducts();
+        }
+
+        public int CountProducts()
+        {
+            return CartDal.GetAllProducts().Count();
+        }
+
+        public int TotalPrice()
+        {
+            int total = 0;
+
+            foreach (ProductDTO product in GetAllProducts())
+            {
+                total = total + product.Price;
+            }
+            return total;
+        }
+
     }
 }

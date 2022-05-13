@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nepshop.Logic.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,6 @@ namespace Nepshop.Logic.Interface
 {
     public interface IUserDal
     {
-        void UpdateUser();
-
-        void BuyCart();
-        
+        void UpdateUser(UserDTO userDTO);      
     }
 }
