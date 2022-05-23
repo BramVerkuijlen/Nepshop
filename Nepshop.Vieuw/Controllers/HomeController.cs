@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Nepshop.Vieuw.Models;
+using Nepshop.View.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Nepshop.Vieuw.Controllers
+namespace Nepshop.View.Controllers
 {
     public class HomeController : Controller
     {

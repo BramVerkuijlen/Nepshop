@@ -1,4 +1,5 @@
 ﻿using Nepshop.Logic.Interface;
+using Nepshop.Logic.Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Nepshop.Logic
             IProductDal ProductDal = productDal;
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(ProductDTO product)
         {
             ProductDal.UpdateProduct(product);
         }

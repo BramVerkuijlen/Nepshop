@@ -1,6 +1,6 @@
 using System;
 
-namespace Nepshop.Vieuw.Models
+namespace Nepshop.View.Models
 {
     public class ErrorViewModel
     {

@@ -18,25 +18,20 @@ namespace Nepshop.Logic
         public string Lastname { get; private set; }
         public string Email { get; private set; }
         public int Points { get; private set; }
-        Favorite Favorite { get;}
-        Cart Cart { get; }
 
         readonly IUserDal UserDal;
 
-        public User(IUserDal userDal, ICartDal cartDal, IFavoriteDal favoriteDal)
+        public User(IUserDal userDal)
         {
             UserDal = userDal;
-
-            Favorite = new Favorite(favoriteDal);
-            Cart = new Cart(cartDal);
         }
 
         public void UpdateUser(User user)
         {
             UserDTO userDTO = new UserDTO();
 
-            userDTO.Username = user.Username;   
-            userDTO.Password = user.Password;           
+            userDTO.Username = user.Username;
+            userDTO.Password = user.Password;
             userDTO.Firstname = user.Firstname;
             userDTO.Lastname = user.Lastname;
             userDTO.Email = user.Email;
@@ -47,7 +42,22 @@ namespace Nepshop.Logic
 
         public void AddProductToCart()
         {
-            Cart.AddProduct(ProductDTO );
+            UserDal.AddProductToCart();
         }
+
+        public void RemoveProductFromCart()
+        {
+            UserDal.RemoveProductFromCart();
+        }
+
+        public void AddProductToFavorites()
+        {
+            UserDal.AddProductToFavorites();
+        }
+        public void RemoveProductFromFavrites()
+        {
+            UserDal.RemoveProductFromFavorites();
+        }
+
     }
 }

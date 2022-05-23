@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Nepshop.Logic.Interface;
 
-namespace Nepshop.Vieuw
+namespace Nepshop.View
 {
     public class Startup
     {
@@ -56,5 +56,7 @@ namespace Nepshop.Vieuw
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+
     }
 }

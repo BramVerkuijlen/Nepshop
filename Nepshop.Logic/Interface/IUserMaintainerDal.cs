@@ -14,5 +14,8 @@ namespace Nepshop.Logic.Interface
         void RemoveUser(UserDTO userDTO);
 
         List<UserDTO> GetAllUsers();
+
+        UserDTO GetUserOnUsernameAndPassword(string username, string password);
+        
     }
 }

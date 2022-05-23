@@ -1,4 +1,5 @@
 ﻿using Nepshop.Logic.Interface;
+using Nepshop.Logic.Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,24 @@ namespace Nepshop.Logic
     {
         private IProductMaintainerDal ProductMaintainerDal;
 
-        
-
         public ProductMaintainer(IProductMaintainerDal productMaintainerDal)
         {
             ProductMaintainerDal = productMaintainerDal;
         }
 
-        void AddProduct(Product product)
+        public void AddProduct(ProductDTO product)
         {
             ProductMaintainerDal.AddProduct(product);
         }
 
-        void RemoveProduct(Product product)
+        public void RemoveProduct(ProductDTO product)
         {
             ProductMaintainerDal.RemoveProduct(product);
         }
 
-        void GetAllProducts()
+        public List<ProductDTO> GetAllProducts()
         {
-            ProductMaintainerDal.GetAllProducts();
+            return ProductMaintainerDal.GetAllProducts();
         }
     }
 }

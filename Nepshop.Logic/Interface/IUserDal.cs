@@ -9,6 +9,14 @@ namespace Nepshop.Logic.Interface
 {
     public interface IUserDal
     {
-        void UpdateUser(UserDTO userDTO);      
+        void UpdateUser(UserDTO userDTO);
+
+        void AddProductToCart();
+        void RemoveProductFromCart();
+
+        void AddProductToFavorites();
+        void RemoveProductFromFavorites();
+
+
     }
 }

@@ -16,6 +16,16 @@ namespace Nepshop.DAL
 
         readonly string ConnectionString = "Data Source=LAPTOP-VCK4O5UP;Initial Catalog=NepshopDB;Integrated Security=True";
 
+        public void AddProductToCart()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddProductToFavorites()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddUser(UserDTO user)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -62,6 +72,47 @@ namespace Nepshop.DAL
                 }
             }
             return users;
+        }
+
+        public UserDTO GetUserOnUsernameAndPassword(string username, string password)
+        {
+            UserDTO user = new UserDTO();
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand querry = new SqlCommand(
+                    "Select * from User" +
+                    $"WHERE UserName = {username}" +
+                    $"Password = {password}"
+                    , conn))
+                {
+                    conn.Open();
+
+                    var reader = querry.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        user.Id = reader.GetInt32(0);
+                        user.Username = reader.GetString(1);
+                        user.Password = reader.GetString(2);
+                        user.Firstname = reader.GetString(3);
+                        user.Lastname = reader.GetString(4);
+                        user.Email = reader.GetString(5);
+                        user.Points = reader.GetInt32(6);
+                    }
+                }
+            }
+            return user;
+        }
+
+        public void RemoveProductFromCart()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProductFromFavorites()
+        {
+            throw new NotImplementedException();
         }
 
         public void RemoveUser(UserDTO user)

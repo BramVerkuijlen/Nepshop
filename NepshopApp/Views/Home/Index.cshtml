@@ -1,0 +1,49 @@
+﻿@using Nepshop.Logic
+@model ProductViewModel;
+
+@{
+    ViewData["Title"] = "Nepshop";
+}
+
+@if ( > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        User Id
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Is Admin
+                    </th>
+                    <th>
+                        Points
+                    </th>
+                    <th>
+                        Changes
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ProductDTO in GetAllProducts())
+                {
+                    <tr>
+                        <td width=30%> @User.Id</td>
+                        <td width=30%> @User.UserName</td>
+                        <td width=30%> @User.UserIsAdmin</td>
+                        <td width=30%> @User.UserPoints</td>
+                        <td width=30%> 
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="User" asp-action="Update" asp-route-id="@User.Id" class="btn btn-primary  "> Update</a>
+                                <a asp-controller="User" asp-action="Delete" asp-route-id="@User.Id" class="btn btn-danger  "> Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
