@@ -12,7 +12,5 @@ namespace NepshopApp.Controllers
         {
             return View();
         }
-
-
     }
 }

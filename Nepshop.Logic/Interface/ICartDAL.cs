@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nepshop.Logic.Helper
+namespace Nepshop.Logic.Interface
 {
-    public enum Category
+    public interface ICartDAL
     {
-        Toys,
-        Games,
-        Electronics,
-        Home
+        void AddProductToCart();
+        void RemoveProductFromCart();
     }
 }

@@ -16,16 +16,6 @@ namespace Nepshop.DAL
 
         readonly string ConnectionString = "Data Source=LAPTOP-VCK4O5UP;Initial Catalog=NepshopDB;Integrated Security=True";
 
-        public void AddProductToCart()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddProductToFavorites()
-        {
-            throw new NotImplementedException();
-        }
-
         public void AddUser(UserDTO user)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -103,16 +93,6 @@ namespace Nepshop.DAL
                 }
             }
             return user;
-        }
-
-        public void RemoveProductFromCart()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveProductFromFavorites()
-        {
-            throw new NotImplementedException();
         }
 
         public void RemoveUser(UserDTO user)

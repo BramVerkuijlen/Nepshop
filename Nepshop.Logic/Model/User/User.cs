@@ -39,25 +39,5 @@ namespace Nepshop.Logic
 
             UserDal.UpdateUser(userDTO);
         }
-
-        public void AddProductToCart()
-        {
-            UserDal.AddProductToCart();
-        }
-
-        public void RemoveProductFromCart()
-        {
-            UserDal.RemoveProductFromCart();
-        }
-
-        public void AddProductToFavorites()
-        {
-            UserDal.AddProductToFavorites();
-        }
-        public void RemoveProductFromFavrites()
-        {
-            UserDal.RemoveProductFromFavorites();
-        }
-
     }
 }

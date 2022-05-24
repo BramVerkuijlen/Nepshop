@@ -26,11 +26,14 @@ namespace NepshopApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddScoped<IUserMaintainerDal, UserDal>();
             services.AddScoped<IUserDal, UserDal>();
             services.AddScoped<IProductMaintainerDal, ProductDal>();
             services.AddScoped<IProductDal, ProductDal>();
-            
+            services.AddScoped<ICartDAL, CartDAL>();
+            services.AddScoped<IFavoriteDAL, FavoriteDal>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -17,11 +17,13 @@ namespace NepshopApp.Controllers
             return View();
         }
 
-        /*public async Task<IActionResult> LoginAsync(UserViewModel userViewModel)
+        public async Task<IActionResult> LoginAsync(UserViewModel userViewModel)
         {
-            UserDTO user = GetUserOnUsernameAndPassword(userViewModel.Username, userViewModel.Password);
+            UserMaintainer userMaintainer = new UserMaintainer();
+
+            UserDTO userDTO = userMaintainer.GetUserOnUsernameAndPassword(userViewModel.Username, userViewModel.Password);
 
         }
-        */
+       
     }
 }
