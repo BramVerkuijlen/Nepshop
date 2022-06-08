@@ -10,7 +10,7 @@ namespace Nepshop.Logic
 {
     public class ProductMaintainer
     {
-        private IProductMaintainerDal ProductMaintainerDal;
+        private readonly IProductMaintainerDal ProductMaintainerDal;
 
         public ProductMaintainer(IProductMaintainerDal productMaintainerDal)
         {
@@ -30,6 +30,10 @@ namespace Nepshop.Logic
         public List<ProductDTO> GetAllProducts()
         {
             return ProductMaintainerDal.GetAllProducts();
+        }
+        public ProductDTO GetProductOnId(int id)
+        {
+            return ProductMaintainerDal.GetProductOnId(id);
         }
     }
 }

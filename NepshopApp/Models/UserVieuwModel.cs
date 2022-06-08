@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace NepshopApp.Models
 {
@@ -7,11 +8,9 @@ namespace NepshopApp.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(3)]
         public string Username { get; set; }
 
         [Required]
-        [MinLength(4)]
         public string Password { get; set; }
 
         [Required]
@@ -23,6 +22,8 @@ namespace NepshopApp.Models
         [Required]
         public string Email { get; set; }
 
+        [Range(0.0, int.MaxValue, ErrorMessage = "Amount must be 0 or greater")]
         public int Points { get; set; }
+
     }
 }

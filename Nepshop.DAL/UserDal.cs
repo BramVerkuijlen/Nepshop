@@ -20,45 +20,48 @@ namespace Nepshop.DAL
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand querry = new SqlCommand(
+                conn.Open();
+                    
+                SqlCommand querry = new SqlCommand("Insert Into Users (Username, Password, Firstname, Lastname, Email, Points)" +
 
-                    "Insert Into User (Username, Password, Firstname, Lastname, Emial, Points)" +
+                                                              "VALUES (@Username,@Password,@Firstname,@Lastname,@Email,@Points)", conn);
 
-                    $"VALUE ( {user.Username},{user.Password},{user.Firstname},{ user.Lastname },{ user.Email},{ user.Points})"
+                querry.Parameters.AddWithValue("@Username", user.Username);
+                querry.Parameters.AddWithValue("@Password", user.Password);
+                querry.Parameters.AddWithValue("@Firstname", user.Firstname);
+                querry.Parameters.AddWithValue("@Lastname", user.Lastname);
+                querry.Parameters.AddWithValue("@Email", user.Email);
+                querry.Parameters.AddWithValue("@Points", user.Points);
 
-                    , conn))
-                {
-                    conn.Open();
-                }
+                SqlDataReader reader = querry.ExecuteReader();
             }
         }
-         
+
         public List<UserDTO> GetAllUsers()
         {
             List<UserDTO> users = new List<UserDTO>();
 
-            using(SqlConnection conn = new SqlConnection(ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using(SqlCommand querry = new SqlCommand("Select * from User", conn))
+                conn.Open();
+
+                SqlCommand querry = new SqlCommand("Select * from Users", conn);
+
+                SqlDataReader reader = querry.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    conn.Open();
+                    UserDTO user = new UserDTO();
 
-                    var reader = querry.ExecuteReader();
+                    user.Id = reader.GetInt32(0);
+                    user.Username = reader.GetString(1);
+                    user.Password = reader.GetString(2);
+                    user.Firstname = reader.GetString(3);
+                    user.Lastname = reader.GetString(4);
+                    user.Email = reader.GetString(5);
+                    user.Points = reader.GetInt32(6);
 
-                    while (reader.Read())
-                    {
-                        UserDTO user = new UserDTO();
-
-                        user.Id = reader.GetInt32(0);
-                        user.Username = reader.GetString(1);
-                        user.Password = reader.GetString(2);
-                        user.Firstname = reader.GetString(3);
-                        user.Lastname = reader.GetString(4);
-                        user.Email = reader.GetString(5);
-                        user.Points = reader.GetInt32(6);
-
-                        users.Add(user);
-                    }
+                    users.Add(user);
                 }
             }
             return users;
@@ -66,43 +69,51 @@ namespace Nepshop.DAL
 
         public UserDTO GetUserOnUsernameAndPassword(string username, string password)
         {
-            UserDTO user = new UserDTO();
-
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand querry = new SqlCommand(
-                    "Select * from User" +
-                    $"WHERE UserName = {username}" +
-                    $"Password = {password}"
-                    , conn))
+                conn.Open();
+
+                SqlCommand querry = new SqlCommand("SELECT * FROM Users WHERE Username = @Username AND Password = @Password", conn);
+
+                querry.Parameters.AddWithValue("@Username", username);
+                querry.Parameters.AddWithValue("@Password", password);
+
+                SqlDataReader reader = querry.ExecuteReader();
+
+                if (reader.Read() == true)
                 {
-                    conn.Open();
+                    UserDTO user = new UserDTO();
 
-                    var reader = querry.ExecuteReader();
+                    user.Id = reader.GetInt32(0);
+                    user.Username = reader.GetString(1);
+                    user.Password = reader.GetString(2);
+                    user.Firstname = reader.GetString(3);
+                    user.Lastname = reader.GetString(4);
+                    user.Email = reader.GetString(5);
+                    user.Points = reader.GetInt32(6);
 
-                    while (reader.Read())
-                    {
-                        user.Id = reader.GetInt32(0);
-                        user.Username = reader.GetString(1);
-                        user.Password = reader.GetString(2);
-                        user.Firstname = reader.GetString(3);
-                        user.Lastname = reader.GetString(4);
-                        user.Email = reader.GetString(5);
-                        user.Points = reader.GetInt32(6);
-                    }
+                    return user;
+                }
+                else
+                {
+                    UserDTO user = new UserDTO();
+
+                    return user;
                 }
             }
-            return user;
         }
 
-        public void RemoveUser(UserDTO user)
+        public void RemoveUser(int userId)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand querry = new SqlCommand("DELETE FROM User WHERE (Id = " + user.Id + ")", conn))
-                {
-                    conn.Open();
-                }
+                conn.Open();
+
+                SqlCommand querry = new SqlCommand("DELETE FROM Users WHERE (Id = @UserId )", conn);
+                
+                querry.Parameters.AddWithValue("UserId", userId);
+
+                SqlDataReader reader = querry.ExecuteReader();
             }
         }
 
@@ -110,19 +121,26 @@ namespace Nepshop.DAL
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand querry = new SqlCommand(
+                conn.Open();
 
-                    "Update User SET(Username, Password, Firstname, Lastname, Emial, Points)" +
+                SqlCommand querry = new SqlCommand("Update Users SET(Username, Password, Firstname, Lastname, Emial, Points)" +
 
-                    $"VALUE ({user.Username},{user.Password},{user.Firstname},{user.Lastname},{user.Email},{user.Points})" +
+                                                             "VALUES (@Username,@Password,@Firstname,@Lastname,@Email,@Points)" +
 
-                    $"WHERE Id = {user.Id})"
-                    
-                    , conn))
-                {
-                    conn.Open();
-                }
+                                                             "WHERE Id = @UserId)", conn);
+
+
+                querry.Parameters.AddWithValue("@Username", user.Username);
+                querry.Parameters.AddWithValue("@Password", user.Password);
+                querry.Parameters.AddWithValue("@Firstname", user.Firstname);
+                querry.Parameters.AddWithValue("@Lastname", user.Lastname);
+                querry.Parameters.AddWithValue("@Email", user.Email);
+                querry.Parameters.AddWithValue("@Points", user.Points);
+                querry.Parameters.AddWithValue("@UserId", user.Id);
+
+                SqlDataReader reader = querry.ExecuteReader();
             }
         }
     }
 }
+

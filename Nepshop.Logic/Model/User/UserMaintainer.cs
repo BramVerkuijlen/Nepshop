@@ -17,6 +17,15 @@ namespace Nepshop.Logic
         }
         public bool AddUser(string username, string password, string firstname, string lastname, string email, int points)
         {
+            UserDTO checkDTO = new UserDTO();
+
+            checkDTO = UserMaintainerDal.GetUserOnUsernameAndPassword(username, password);
+
+            if (checkDTO.Username != null)
+            {
+                return false;
+            }
+
             UserDTO userDTO = new UserDTO();
             userDTO.Username = username;
             userDTO.Password = password;
@@ -25,18 +34,14 @@ namespace Nepshop.Logic
             userDTO.Email = email;
             userDTO.Points = points;
 
-            if (GetUserOnUsernameAndPassword(userDTO.Username, userDTO.Password).Username == null)
-            {
-                UserMaintainerDal.AddUser(userDTO);
-                return true;
-            }
+            UserMaintainerDal.AddUser(userDTO);
 
-            else return false;
+            return true;
         }
 
-        public void RemoveUser(UserDTO user)
+        public void RemoveUser(int userId)
         {
-            UserMaintainerDal.RemoveUser(user);
+            UserMaintainerDal.RemoveUser(userId);
         }
 
         public List<UserDTO> GetAllUsers()

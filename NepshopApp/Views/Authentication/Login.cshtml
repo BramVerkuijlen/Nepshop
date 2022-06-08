@@ -4,7 +4,7 @@
     <h1> Login </h1>
 
     <hr />
-    @TempData["message"]
+    <div class ="text-danger">@TempData["message"]</div>
     <div class="row">
         <div class="col-md-4">
             <form method="post">
@@ -20,7 +20,7 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Login" class="btn btn-primary loginBtn" />
+                    <input type="submit" value="Login" class="btn btn-primary loginBtn" asp-action = "Auth"/>
                 </div>
             </form>
         </div>
@@ -32,4 +32,8 @@
             Register
         </a>
     </div>
+}
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial"/>}
 }

@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using Nepshop.Logic;
 using Nepshop.DAL;
 using Nepshop.Logic.Model.DTO;
+using Nepshop.Logic.Interface;
 
 namespace NepshopApp.Controllers
 {
     public class HomeController : Controller
     {
+        readonly IProductMaintainerDal ProductMaintainerDAL;
+
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductMaintainerDal productMaintainerDal)
         {
             _logger = logger;
+            ProductMaintainerDAL = productMaintainerDal;
         }
 
         public IActionResult Index(ProductDal productDal)

@@ -1,9 +1,12 @@
 ﻿using Nepshop.Logic.Interface;
+using Nepshop.Logic.Model.DTO;
+using Nepshop.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Nepshop.Logic.Model
 {
@@ -15,14 +18,19 @@ namespace Nepshop.Logic.Model
             CartDAL = cartDAL;
         }
 
-        public void AddProduct()
+        public void AddProduct(string userId, string productId)
         {
-            CartDAL.AddProductToCart();
+            CartDAL.AddProductToCart(userId, productId);
         }
 
-        public void RemoveProduct()
+        public void RemoveProduct(string userId, string productId)
         {
-            CartDAL?.RemoveProductFromCart();
+            CartDAL.RemoveProductFromCart(userId, productId);
+        }
+
+        public List<ProductDTO> GetAllProductsInCart(string userId, string productId)
+        {
+           return CartDAL.GetProductsInCart(userId, productId);
         }
     }
 }

@@ -14,7 +14,8 @@ namespace Nepshop.Logic.Interface
         void RemoveProduct(ProductDTO productDTO);
 
         List<ProductDTO> GetAllProducts();
-        
-        
+
+        public ProductDTO GetProductOnId(int id);
+
     }
 }

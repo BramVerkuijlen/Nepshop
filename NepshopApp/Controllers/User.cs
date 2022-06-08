@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace NepshopApp.Controllers
 {
@@ -11,6 +12,16 @@ namespace NepshopApp.Controllers
         public IActionResult Favorite()
         {
             return View();
+        }
+
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> UpdateAsync()
+        {
+            return RedirectToAction("Index");
         }
     }
 }

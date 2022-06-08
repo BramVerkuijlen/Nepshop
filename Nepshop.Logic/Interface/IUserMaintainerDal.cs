@@ -11,7 +11,7 @@ namespace Nepshop.Logic.Interface
     {
         void AddUser(UserDTO userDTO);
 
-        void RemoveUser(UserDTO userDTO);
+        void RemoveUser(int userId);
 
         List<UserDTO> GetAllUsers();
 
