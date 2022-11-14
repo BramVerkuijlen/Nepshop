@@ -57,14 +57,14 @@ namespace Nepshop.DAL
                 {
                     ProductDTO product = new ProductDTO();
 
-                    product.Id = reader.GetInt32(0);
-                    product.Name = reader.GetString(1);
-                    product.Description = reader.GetString(2);
-                    product.Category = reader.GetString(3);
-                    product.Picture = reader.GetString(4);
-                    product.Price = reader.GetInt32(5);
-                    product.Amount = reader.GetInt32(6);
-                    product.Available = reader.GetBoolean(7);
+                    product.Id = reader.GetInt32(1);
+                    product.Name = reader.GetString(2);
+                    product.Description = reader.GetString(3);
+                    product.Category = reader.GetString(4);
+                    product.Picture = reader.GetString(5);
+                    product.Price = reader.GetInt32(6);
+                    product.Amount = reader.GetInt32(7);
+                    product.Available = reader.GetBoolean(8);
 
                     products.Add(product);
                 }

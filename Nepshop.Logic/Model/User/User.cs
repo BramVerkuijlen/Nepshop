@@ -26,16 +26,18 @@ namespace Nepshop.Logic
             UserDal = userDal;
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id, string username, string password, string firstname, string lastname, string email, int points)
         {
+
             UserDTO userDTO = new UserDTO();
 
-            userDTO.Username = user.Username;
-            userDTO.Password = user.Password;
-            userDTO.Firstname = user.Firstname;
-            userDTO.Lastname = user.Lastname;
-            userDTO.Email = user.Email;
-            userDTO.Points = user.Points;
+            userDTO.Id = id;
+            userDTO.Username = username;
+            userDTO.Password = password; 
+            userDTO.Firstname = firstname;
+            userDTO.Lastname = lastname;
+            userDTO.Email = email;
+            userDTO.Points = points;
 
             UserDal.UpdateUser(userDTO);
         }

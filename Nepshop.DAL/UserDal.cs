@@ -123,12 +123,9 @@ namespace Nepshop.DAL
             {
                 conn.Open();
 
-                SqlCommand querry = new SqlCommand("Update Users SET(Username, Password, Firstname, Lastname, Emial, Points)" +
+                SqlCommand querry = new SqlCommand("UPDATE Users SET Username = @Username, Password = @Password, Firstname = @Firstname, Lastname = @Lastname, Email = @Email, Points = @Points " +
 
-                                                             "VALUES (@Username,@Password,@Firstname,@Lastname,@Email,@Points)" +
-
-                                                             "WHERE Id = @UserId)", conn);
-
+                                                             "WHERE Id = @UserId", conn);
 
                 querry.Parameters.AddWithValue("@Username", user.Username);
                 querry.Parameters.AddWithValue("@Password", user.Password);

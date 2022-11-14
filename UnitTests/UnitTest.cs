@@ -10,7 +10,7 @@ using Xunit.Sdk;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void AddUser_AddExistingUser_ReturnsFalse()
@@ -84,5 +84,7 @@ namespace UnitTests
             int userCount = userMaintainer.GetAllUsers().Count;
             Assert.AreEqual(2, userCount);
         }
+
+
     }
 }

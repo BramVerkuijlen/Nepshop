@@ -34,29 +34,16 @@ namespace NepshopApp.Controllers
         {
             UserMaintainer userMaintainer = new UserMaintainer(UserMaintainerDal);
 
-            UserDTO user = userMaintainer.GetUserOnUsernameAndPassword(userViewModel.Username, userViewModel.Password);
+            UserDTO userDTO = userMaintainer.GetUserOnUsernameAndPassword(userViewModel.Username, userViewModel.Password);
 
-            if (user.Username == null)
+            if (userDTO.Username == null)
             {
                 TempData["message"] = "Wrong username or Password";
                 return Redirect("Login");
             }
 
-            else
-            {
-                List<Claim> claims = new()
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.Username),
-
-                };
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var claimsPrincipal = new ClaimsPrincipal(identity);
-                await HttpContext.SignInAsync(claimsPrincipal);
-            }
-
-            return RedirectToAction("Index");
+            TempData["message"] = "User Id = " + userDTO.Id.ToString();
+            return Redirect("Login");
         }
 
         public async Task<IActionResult> RegisterAsync (UserViewModel userViewModel)
